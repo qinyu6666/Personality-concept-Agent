@@ -1,2 +1,9 @@
 # Personality-concept-Agent
-Empower robots so that they have real-time interactive capabilities of seeing, hearing, and speaking, and can extract what they perceive as permanent memory for future autonomous learning.
+Empower robots so that they have real-time interactive capabilities of seeing, hearing, and speaking, and can extract what they perceive as permanent memory for future autonomous learning, achieved overall pipline automation.
+
+The ideal scenario described above is one where the machine can ask questions and the user can answer them. Of course, users can also ask random questions and the machine can answer them. The goal is to enable this in a variety of embedded mobile devices. For example, using a laptop, the camera is turned on, keyframes are captured from the video stream, and these keyframes are processed, adaptively sampled, and optimized. Only frames with significant changes are processed. That is, frames with slow changes are sampled at a slow frequency, while frames with fast changes are sampled at a fast frequency. For each keyframe, three things are done simultaneously:
+
+1. The machine automatically performs YOLO box selection on the key frames, extracts the selected people and objects, saves them as concept maps, and then automatically names these concept maps, fills in the path, provides descriptions, classifies them, and assigns a unique ID value. These contents are stored in the database, and MySQL is used for persistent storage;
+2. Use the visual large model (VLM) to describe the keyframe and generate a question from the description to the user. If the user answers, the chat continues. All question-answer pairs are recorded in the history. (If the user does not answer, the process continues.)
+3. If the user asks a question, the question and the keyframe are input to the VLM. The output description information is answered in voice through TTS, interacting with the user. At the same time, the question and answer pair is sent to the history record.
+
